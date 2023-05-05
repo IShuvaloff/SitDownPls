@@ -1,0 +1,136 @@
+.banner-section
+  &__btn
+    display: none
+    // margin-top: 32px
+    // width: 100%
+    // max-width: 100%
+.banner
+  // !!! слайдеры хреново работают с паддингами внутри!!!!! НЕ ИСПОЛЬЗОВАТЬ!
+  height: 400px
+  &__slide
+    // height: 400px
+    &--1
+      background: url(img/banner/banner-1.jpg) center center / cover no-repeat
+    &--2
+      background: url(img/banner/banner-2.jpg) center center / cover no-repeat
+    &--3
+      background: url(img/banner/banner-3.jpg) center center / cover no-repeat
+    &--4
+      background-color: $color-gs-grey-light
+  &__container
+    margin: 0 auto
+    // border: 1px solid $color-gs-black
+    max-width: min(1352px, 100vw)
+    height: 100%
+  &__wrapper
+    &--4
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+  &__title
+    margin-top: 80px
+    margin-bottom: 49px
+    max-width: 500px
+    font-weight: 700
+    font-size: 48px
+    line-height: 65px
+    color: $color-gs-grey
+    &--1
+    &--2
+    &--3
+      max-width: 600px
+      color: $color-gs-white
+  &__text
+    font-weight: 400
+    font-size: 24px
+    line-height: 100%
+    color: $color-gs-grey
+    &--4
+      max-width: 280px
+      text-align: center
+  &__btn
+    width: 164px
+  &__logo
+    margin-top: 105px
+    margin-bottom: 30px
+    width: 161px
+    height: 112px
+    svg
+      fill: $color-tr-dark-light
+  &__pagination
+    bottom: 16px !important
+    &-bullet
+      display: inline-block
+      margin: 3px
+      background-color: $color-gs-black
+      opacity: 0.3
+      border-radius: 50%
+      width: 15px
+      height: 15px
+      cursor: pointer
+      &:not(:last-child)
+        margin-right: 16px
+      &:not(:first-child)
+        margin-left: 0
+      &--active
+        opacity: 1
+
+
+@media (max-width: 1351.98px)
+  .banner
+    &__slide
+      &--1
+        background-image: url(img/banner/banner-1-small.jpg)
+      &--2
+        background-image: url(img/banner/banner-2-small.jpg)
+      &--3
+        background-image: url(img/banner/banner-3-small.jpg)
+
+@media (max-width: 1023.98px)
+  .banner
+    &__slide
+      &--1
+        background-image: url(img/banner/banner-1-medium.jpg)
+      &--2
+        background-image: url(img/banner/banner-2-medium.jpg)
+      &--3
+        background-image: url(img/banner/banner-3-medium.jpg)
+
+@media (max-width: 575.98px)
+  .banner-section__btn
+    display: inline-flex
+  .banner
+    height: 210px
+    &__title
+      margin-top: 30px
+      margin-left: 18px
+      max-width: 204px
+      font-size: 20px
+      line-height: 27px
+    &__btn
+      display: none
+    &__text
+      font-size: 16px
+      &--4
+        max-width: 200px
+    &__logo
+      margin-top: 57px
+      margin-bottom: 14px
+      width: 73px
+      height: 50px
+    &__pagination
+      bottom: 10px !important
+      &-bullet
+        display: inline-block
+        margin: 0
+        background-color: $color-gs-black
+        opacity: 0.3
+        border-radius: 50%
+        width: 6px
+        height: 6px
+        cursor: pointer
+        &:not(:last-child)
+          margin-right: 8px
+        &--active
+          opacity: 1

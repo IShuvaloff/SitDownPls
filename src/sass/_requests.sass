@@ -1,0 +1,102 @@
+.request
+  display: flex
+  justify-content: stretch
+  align-items: center
+  min-height: 432px
+  &__content
+    padding-right: 16px
+    max-width: 50%
+    height: 100%
+  &__image
+    padding: 25px 0 24px 16px
+    min-width: 520px
+    height: 100%
+    &-small
+      display: none
+  &__title
+    margin-bottom: 9px
+  &__text
+    position: relative
+    z-index: 2
+    margin-bottom: -14px
+    font-weight: 400
+    font-size: 14px
+    line-height: 19px
+    color: $color-gs-grey-shade
+  &__form
+    position: relative
+    z-index: 1
+    display: flex
+    flex-direction: column
+    align-items: stretch
+  &__inputs
+    margin-bottom: 30px
+    width: 100%
+  &__input
+    margin-top: 30px
+    width: 100%
+    &-wrapper
+      position: relative
+      display: flex
+      flex-direction: column-reverse
+      align-items: stretch
+      .just-validate-error-label
+        position: absolute
+        top: 12px
+        left: 18px
+        font-weight: 400 !important
+        font-size: 12px !important
+        line-height: 16px !important
+        color: $color-input-error !important
+      .just-validate-success-field
+        border: 1px solid $color-input-ok
+  &__btn
+    margin-bottom: 12px
+    align-self: flex-start
+    width: 159px
+    min-height: 54px !important
+  &__label-checkbox
+    font-weight: 400 !important
+    font-size: 14px !important
+    line-height: 19px !important
+    &::before
+      height: 14px !important
+      width: 20px !important
+    a
+      text-decoration: underline
+      color: $color-primary
+
+@media (max-width: 1351.98px)
+  .request
+    &__text
+      max-width: 90%
+
+@media (max-width: 1023.98px)
+  .request
+    &__content
+      max-width: 100%
+    &__image
+      min-width: 203px
+      &-big
+        display: none
+      &-small
+        display: block
+    &-section
+      margin-bottom: 52px
+
+@media (max-width: 767.98px)
+  .request
+    &__text
+      max-width: 100%
+    &__image
+      display: none
+    &__content
+      padding-right: 0
+    &__label-checkbox
+      font-size: 12px !important
+      line-height: 16px !important
+
+@media (max-width: 575.98px)
+  .request
+    &-section
+      margin-bottom: 65px

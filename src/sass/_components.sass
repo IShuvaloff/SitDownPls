@@ -1,0 +1,1785 @@
+// главный контейнер
+.container
+  margin: 0 auto
+  padding: 0 36px
+  max-width: 1352px
+  height: 100%
+  // border: 1px solid $color-gs-black
+
+.section
+  margin-bottom: 69px
+  &__title
+    margin-bottom: 26px
+    font-weight: 400
+    font-size: 32px
+    line-height: 100%
+    color: $color-gs-black
+
+// кнопки
+.btn
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  padding-right: 10px
+  padding-left: 10px
+  background-color: $color-primary
+  border: 2px solid $color-primary
+  border-radius: 10px
+  min-height: 60px
+  font-weight: 700
+  font-size: 16px
+  line-height: 100%
+  color: $color-gs-white
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out
+  &:focus
+    background-color: $color-primary-light
+    border-color: $color-primary-light
+  &:hover
+    background-color: $color-primary-light
+    border-color: $color-primary-shade
+  &:active
+    background-color: $color-primary-shade
+    border-color: $color-primary-shade
+.btn-empty
+  flex-grow: 0
+  flex-shrink: 0
+  background-color: transparent
+  min-height: 54px
+  font-weight: 600
+  color: $color-primary
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out
+  &:focus
+    background-color: $color-primary
+    border-color: $color-primary
+    color: $color-gs-white
+  &:hover
+    background-color: $color-primary-light
+    color: $color-gs-white
+  &:active
+    background-color: $color-primary-shade
+    border-color: $color-primary-shade
+    color: $color-gs-white
+.btn-section
+  margin-top: 32px
+  width: 296px
+
+// логотип
+.logo
+  display: block
+  width: 187px
+  height: 27px
+
+// выпадающий список с филиалами
+.branches
+  display: flex
+  align-items: center
+  height: 20px
+  &__title
+    font-weight: 400
+    font-size: 16px
+    line-height: 120%
+  .choices // общий контейнер селекта
+    width: 86px
+  .choices[data-type*=select-one] // стрелка
+    &::after
+      height: 7px
+      width: 7px
+      z-index: 3
+      top: 7px
+      right: 8px
+      border: 1px solid $color-primary
+      border-width: 0 0 1px 1px
+      transform: rotate(-45deg)
+      transition: border-color 0.2s ease-in-out
+    &.is-open::after
+      top: 16px
+      transform: rotate(-225deg)
+      transition: border-color 0.2s ease-in-out
+  .choices__inner // строка с выбранным элементом
+    display: flex !important
+    align-items: center !important
+    padding: 0 !important
+    border: none !important
+    border-radius: 0 !important
+    background-color: transparent !important
+    min-height: 0 !important
+  .choices__list
+    overflow: hidden !important
+    max-height: unset !important
+  .choices__list--single
+    padding: 0 21px 0 4px !important
+    height: 100% !important
+    font-size: 16px !important
+    line-height: 120% !important
+    color: $color-primary !important
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+  .choices__list--dropdown // контейнер выпадающего списка
+    top: 28px !important
+    padding: 17px 0 17px 15px
+    margin-top: 0 !important
+    background-color: $color-gs-white !important
+    border: 2px solid $color-gs-grey-light !important
+    border-radius: 0 !important
+    font-weight: 400
+    font-size: 14px
+    line-height: 130%
+  .choices__item--selectable
+    padding: 0 !important
+  .choices__item--choice:not(:last-child)
+    margin-bottom: 11px
+  // ! события
+  .is-focused // фокусирование на селекте
+    .choices__list--single // апдейт строки
+      color: $color-primary-light !important
+    &::after // апдейт стрелки
+      border-color: $color-primary-light !important
+      border-color: $color-primary-light !important
+  .choices__list--single // наведение на селект, апдейт строки
+    &:hover
+      color: $color-primary-shade !important
+      background-color: $color-primary-bg
+  .choices[data-type*=select-one] // наведение на селект, апдейт стрелки
+    &:hover
+      &::after
+        border-color: $color-primary-shade !important
+        border-color: $color-primary-shade !important
+  .is-open // открытое состояние
+    .choices__list--single // апдейт строки
+      color: $color-primary-shade !important
+      background-color: transparent !important
+    &::after // апдейт стрелки
+      border-color: $color-primary-shade !important
+      border-color: $color-primary-shade !important
+
+// телефон
+.link-phone
+  display: flex
+  flex-direction: row
+  align-items: center
+  padding: 3px
+  padding-right: 0
+  font-weight: 400
+  font-size: 14px
+  line-height: 100%
+  color: $color-secondary
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+  svg
+    margin-right: 3px
+    height: 17px
+    width: 17px
+    fill: $color-secondary
+    transition: fill 0.2s ease-in-out
+  &:focus
+    color: $color-secondary-light
+    svg
+      fill: $color-secondary-light
+  &:hover
+    background-color: $color-neutral-light
+    color: $color-secondary
+    svg
+      fill: $color-secondary
+  &:active
+    background-color: transparent
+    color: $color-secondary-shade
+    svg
+      fill: $color-secondary-shade
+
+// меню
+.menu-corp
+  display: flex
+  justify-content: stretch
+  align-items: center
+  &__list
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-grow: 1
+    font-weight: 400
+    font-size: 14px
+    line-height: 100%
+    color: $color-gs-grey
+  &__item
+    a
+      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+      padding: 0 10px 1px 10px
+      &:focus
+        color: $color-primary
+      &:hover
+        color: $color-primary-shade
+        background-color: $color-primary-bg
+      &:active
+        color: $color-primary-shade
+        background-color: transparent
+  &__item:last-child
+    margin-right: -10px
+  &__item:first-child
+    margin-left: -10px
+  &__item:not(:last-child)
+    margin-right: 44px
+.menu-sales
+  display: flex
+  justify-content: stretch
+  align-items: center
+  &__list
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-grow: 1
+    font-weight: 400
+    font-size: 16px
+    line-height: 22px
+    color: $color-gs-black
+  &__item
+    a
+      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+      padding: 2px 10px 2px 10px
+      &:focus
+        color: $color-primary
+      &:hover
+        color: $color-gs-black
+        background-color: $color-primary-bg
+      &:active
+        color: $color-primary-shade
+        background-color: transparent
+  &__item:last-child
+    margin-right: -10px
+  &__item:first-child
+    margin-left: -10px
+  &__item:not(:last-child)
+    margin-right: 21px
+
+.burger-menu
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  z-index: -1
+  display: none
+  padding: 26px 0 60px
+  background-color: $color-gs-white
+  border-top: 1px solid $color-gs-grey
+  border-bottom: 1px solid $color-gs-grey
+  transition: opacity 0.2s ease-in-out
+  &__close-block
+    margin-bottom: 29px
+  &__grid
+    display: grid
+    grid-gap: 41px
+    grid-template-columns: 103px 150px
+  &__item
+    font-weight: 400
+    font-size: 16px
+    line-height: 22px
+    a
+      &:focus
+        color: $color-primary
+      &:hover
+        color: $color-gs-black
+        background-color: $color-primary-bg
+      &:active
+        color: $color-primary-shade
+        background-color: transparent
+
+// ссылка-иконка
+.link-icon
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-grow: 0
+  flex-shrink: 0
+  padding: 4px
+  width: 32px
+  height: 36px
+  transition: background-color 0.2s ease-in-out
+  &__text
+    position: absolute
+    top: 8px
+    left: 4px
+    padding: 2px 4px
+    background-color: $color-secondary
+    border: none
+    border-radius: 7px
+    min-width: 14px
+    min-height: 14px
+    font-weight: 700
+    font-size: 10px
+    line-height: 100%
+    text-align: center
+    color: $color-gs-white
+  svg
+    fill: $color-primary
+    transition: fill 0.2s ease-in-out
+  &:focus
+    svg
+      fill: $color-primary-light
+  &:hover
+    background-color: $color-primary-light
+    svg
+      fill: $color-gs-white
+  &:active
+    background-color: transparent
+    svg
+      fill: $color-primary-shade
+  &--basket
+    padding-left: 15px
+    width: 49px
+
+// круглая кнопка-иконка со стрелкой вправо
+.btn-icon
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: transparent
+  border-radius: 50%
+  width: 32px
+  height: 32px
+  transition: background-color 0.2s ease-in-out
+  &::before
+    position: absolute
+    content: ''
+    inset: 0
+    border: 2px solid $color-primary
+    border-radius: 50%
+    opacity: 1
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, border-color 0.2s ease-in-out
+  svg
+    stroke: $color-primary
+    stroke-width: 2
+    stroke-linejoin: round
+    stroke-linecap: round
+    fill: transparent
+    transition: stroke .2s ease-in-out
+  &:focus
+    background-color: $color-primary
+    svg
+      stroke: $color-gs-white
+  &:hover
+    background-color: $color-primary-light
+    svg
+      stroke: $color-gs-white
+  &:active
+    background-color: $color-primary-shade
+    &::before
+      border-color: $color-primary-shade
+    svg
+      stroke: $color-gs-white
+.btn-icon--disabled
+  &::before
+    border-color: $color-gs-grey !important
+  svg
+    stroke: $color-gs-grey !important
+  &:focus, &:hover, &:active
+    background-color: transparent !important
+    svg
+      stroke: $color-gs-grey !important
+  &:active
+    &::before
+      border-color: $color-gs-grey !important
+
+// круглая кнопка-иконка со стрелкой вправо
+.btn-icon
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: transparent
+  border-radius: 50%
+  width: 32px
+  height: 32px
+  transition: background-color 0.2s ease-in-out
+  &::before
+    position: absolute
+    content: ''
+    inset: 0
+    border: 2px solid $color-primary
+    border-radius: 50%
+    opacity: 1
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, border-color 0.2s ease-in-out
+  svg
+    stroke: $color-primary
+    stroke-width: 2
+    stroke-linejoin: round
+    stroke-linecap: round
+    fill: transparent
+    transition: stroke .2s ease-in-out
+  &:focus
+    background-color: $color-primary
+    svg
+      stroke: $color-gs-white
+  &:hover
+    background-color: $color-primary-light
+    svg
+      stroke: $color-gs-white
+  &:active
+    background-color: $color-primary-shade
+    &::before
+      border-color: $color-primary-shade
+    svg
+      stroke: $color-gs-white
+
+// стандартный инпут
+.input
+  padding: 7px 18px
+  background-color: $color-gs-grey-light
+  border: 1px solid transparent
+  border-radius: 10px
+  font-weight: 400
+  font-size: 16px
+  line-height: 40px
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out
+  &::placeholder
+    font-weight: 400
+    font-size: 16px
+    line-height: 40px
+    color: $color-gs-grey
+  &:focus
+    background-color: $color-gs-grey-md
+  &:hover
+    background-color: $color-primary-bg-light
+    border-color: $color-primary
+  &--valid
+    border-color: $color-input-ok
+  &--invalid
+    border-color: $color-input-error
+
+// строка поиска
+.search
+  position: relative
+  display: flex
+  align-items: center
+  &__input
+    padding: 20px 79px 20px 59px
+    background-color: $color-gs-grey-light
+    border: 2px solid transparent
+    border-radius: 0
+    border-top-left-radius: 10px
+    border-bottom-left-radius: 10px
+    width: 100%
+    height: 100%
+    font-weight: 400
+    font-size: 16px
+    line-height: 120%
+    &::placeholder
+      font-weight: 400
+      font-size: 16px
+      line-height: 120%
+      color: $color-gs-grey
+    &:focus
+      background-color: $color-gs-grey-md
+    &:focus + .search__icon
+      fill: $color-primary
+    &:hover
+      background-color: $color-primary-bg-light
+      border-color: $color-primary
+  &__icon
+    position: absolute
+    top: 0
+    left: 34px
+    width: 16px
+    height: 100%
+    fill: $color-gs-grey
+  &__btn
+    position: absolute
+    right: 32px
+    top: calc(50% - 16px)
+    // border: 2px solid $color-primary
+    // border-radius: 50%
+    width: 32px
+    height: 32px
+
+// выпадающий список с категориями
+.categories
+  display: flex
+  align-items: center
+  height: 100%
+  width: 100%
+  &__title
+    font-weight: 400
+    font-size: 16px
+    line-height: 120%
+  .choices // общий контейнер селекта
+    width: 100%
+    height: 100%
+  .choices[data-type*=select-one] // стрелка
+    &::after
+      height: 7px
+      width: 7px
+      z-index: 20
+      top: 27px
+      right: 32px
+      border: 1px solid $color-primary
+      border-width: 0 0 1px 1px
+      transform: rotate(-45deg)
+      transition: border-color 0.2s ease-in-out
+    &.is-open::after
+      top: 36px
+      transform: rotate(-225deg)
+      transition: border-color 0.2s ease-in-out
+  .choices__inner // контейнер со строкой с выбранным элементом
+    display: flex !important
+    align-items: center !important
+    padding: 0 !important
+    border: 2px solid $color-gs-grey-light !important
+    border-radius: 0 10px 10px 0 !important
+    background-color: transparent !important
+    height: 100%
+    transition: border-radius 0.3s ease-in-out
+  .choices__list
+    overflow: hidden !important
+    max-height: unset !important
+  .choices__list--single // непосредственно строка с выбранным элементом
+    display: flex
+    align-items: center
+    padding: 0 32px !important
+    height: 100% !important
+    font-size: 16px !important
+    line-height: 120% !important
+    color: $color-primary !important
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+  .choices__list--dropdown // контейнер выпадающего списка
+    top: 100% !important
+    padding: 17px 0 17px 30px
+    z-index: 4
+    margin-top: 0 !important
+    background-color: $color-gs-white !important
+    border: 2px solid $color-gs-grey-light !important
+    border-radius: 0 0 10px 10px !important
+    font-weight: 400
+    font-size: 14px
+    line-height: 130%
+  .choices__list--dropdown.is-active
+    .choices__list
+      display: grid !important
+      grid-gap: 0
+      grid-template-columns: repeat(2, minmax(91px, 1fr))
+  .choices__item--selectable
+    padding: 0 !important
+  .choices__item--choice:not(:last-child) // изменить последний элемент в списке
+    margin-bottom: 11px
+  .choices__item--choice:first-child // убрать первый, используемый как "плейсхолдерский" элемент в списке
+    display: none
+  // ! события
+  .is-focused // ? фокусирование на селекте
+    .choices__list--single // апдейт строки
+      // color: $color-primary-light !important
+    .choices__inner
+      border-color: $color-primary !important
+    &::after // апдейт стрелки
+      // border-color: $color-primary-light !important
+      // border-color: $color-primary-light !important
+  .choices__list--single // ? наведение на селект, апдейт строки
+    &:hover
+      color: $color-primary-shade !important
+      background-color: $color-primary-bg
+  .choices[data-type*=select-one] // наведение на селект, апдейт стрелки
+    &:hover
+      border-color: $color-primary !important
+      &::after
+        border-color: $color-primary-shade !important
+        border-color: $color-primary-shade !important
+  .choices__inner
+    &:hover
+      border-color: $color-primary !important
+  .choices__inner // ? открытое состояние
+    &:active
+      border-color: $color-primary-shade !important
+      border-bottom-right-radius: 0 !important
+  .is-open
+    .choices__inner
+      border-color: $color-primary !important
+      border-bottom-right-radius: 0 !important
+      border-bottom-left-radius: 0 !important
+    .choices__list--single // апдейт строки
+      color: $color-primary !important
+      background-color: transparent !important
+    &::after // апдейт стрелки
+      border-color: $color-primary !important
+      border-color: $color-primary !important
+
+// карточка товара в скидках и высоком рейтинге
+.goods-card
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  justify-content: flex-start
+  padding: 30px
+  background-color: $color-gs-grey-light
+  border-radius: 10px
+  min-height: 420px
+  max-width: 500px
+  width: 100%
+  &__rating
+    margin-bottom: 24px
+  &__photo
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    margin: auto -15px 16px -15px
+    height: 112px
+    img, picture
+      object-fit: contain
+  &__title
+    margin-bottom: 24px
+    font-weight: 400
+    font-size: 24px
+    line-height: 130%
+    color: $color-gs-black
+  &__price-info
+    display: flex
+    align-items: center
+    margin-bottom: 24px
+    font-weight: 400
+  &__price-new
+    padding-right: 30px
+    font-size: 18px
+    line-height: 130%
+    color: $color-secondary
+  &__price
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+  &__btn
+    margin-top: auto
+    max-width: 128px
+    max-height: 54px
+  &__discount
+    position: absolute
+    top: 30px
+    left: 0
+  &__scheme
+    position: absolute
+    right: 30px
+    bottom: 30px
+    visibility: hidden
+    opacity: 0
+
+.product-card
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  justify-content: space-between
+  padding: 30px
+  background-color: $color-gs-grey-light
+  border-radius: 10px
+  min-height: 359px
+  max-width: 500px
+  width: auto
+  &__rating
+    flex-shrink: 0
+    margin-bottom: 5px
+  &__photo
+    flex: 1 1
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    margin: 0 -15px 16px -15px
+    height: 112px
+    img
+      object-fit: contain !important
+      max-width: 100%
+      max-height: 100%
+    picture
+      display: flex
+      object-fit: contain
+      max-width: 100%
+      max-height: 100%
+  &__title
+    flex-shrink: 0
+    margin-bottom: 24px
+    font-weight: 400
+    font-size: 24px
+    line-height: 130%
+    color: $color-gs-black
+  &__price-info
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    margin-bottom: 19px
+    font-weight: 400
+  &__price--new
+    padding-right: 30px
+    font-size: 18px
+    line-height: 130%
+    color: $color-secondary
+  &__price
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+  &__btn
+    flex-shrink: 0
+    margin-top: auto
+    max-width: 105px
+    min-height: 52px
+    max-height: 54px
+  &__discount
+    position: absolute
+    top: 30px
+    left: 0
+    flex-shrink: 0
+  &__scheme
+    flex-shrink: 0
+    position: absolute
+    right: 30px
+    bottom: 30px
+    visibility: hidden
+    opacity: 0
+
+// рейтинг
+.rating
+  display: flex
+  flex-direction: row
+  align-items: center
+  font-weight: 400
+  font-size: 16px
+  color: $color-secondary
+  svg
+    margin-right: 7px
+    height: 17px
+    width: 17px
+    fill: $color-secondary
+
+// скидка
+.tag-discount
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  background: url(img/discount.svg) left center / contain no-repeat
+  width: 92px
+  height: 34px
+  font-weight: 700
+  font-size: 14px
+  line-height: 19px
+  text-align: center
+  color: $color-gs-white
+  span
+    margin-right: 10px
+
+// ссылка текст + иконка
+.link-text-icon
+  display: flex
+  align-items: center
+  flex-wrap: nowrap
+  &__name
+    margin-right: calc(5px * $link-text-icon-standart-size)
+    border-bottom: 2px solid transparent
+    font-weight: 700
+    font-size: calc(16px * $link-text-icon-standart-size)
+    line-height: calc(120% * $link-text-icon-standart-size)
+    color: $color-primary
+    transition: border-bottom 0.2s ease-in-out, color 0.2s ease-in-out
+  &__img
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: transparent
+    border-radius: 50%
+    width: calc(22px * $link-text-icon-standart-size)
+    height: calc(22px * $link-text-icon-standart-size)
+    transition: background-color 0.2s ease-in-out
+    &::before
+      position: absolute
+      content: ''
+      inset: 0
+      border: 2px solid $color-primary
+      border-radius: 50%
+      opacity: 1
+      transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, border-color 0.2s ease-in-out
+  svg
+    stroke: $color-primary
+    stroke-width: 2
+    stroke-linejoin: round
+    stroke-linecap: round
+    fill: transparent
+    transition: stroke .2s ease-in-out
+  &:focus
+    .link-text-icon__name
+      border-bottom-color: $color-primary
+    .link-text-icon__img
+      background-color: $color-primary
+    svg
+      stroke: $color-gs-white
+  &:hover
+    .link-text-icon__name
+      border-bottom-color: $color-primary
+    .link-text-icon__img
+      background-color: $color-primary-light
+    svg
+      stroke: $color-gs-white
+  &:active
+    .link-text-icon__name
+      border-bottom-color: $color-primary-shade
+      color: $color-primary-shade
+    .link-text-icon__img
+      background-color: $color-primary-shade
+      &::before
+        border-color: $color-primary-shade
+    svg
+      stroke: $color-gs-white
+
+// карточка в топе
+.top-card
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  flex-wrap: nowrap
+  padding: 30px
+  background-color: $color-gs-grey-light
+  border-radius: 10px
+  height: 100%
+  overflow: hidden
+  &__categ-list
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    align-items: center
+    margin-bottom: 14px
+    font-weight: 400
+    font-size: 14px
+    line-height: 100%
+    color: $color-gs-grey
+  &__categ-item:not(:last-child)
+    margin-right: 30px
+  &__title
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    // align-items: flex-end
+    align-items: center
+    justify-content: flex-start
+    margin-bottom: 30px
+    font-weight: 400
+    font-size: 24px
+    line-height: 33px
+  &__btn-icon
+    flex-shrink: 0
+    flex-grow: 0
+    display: none
+    // margin-bottom: 3px
+    margin-left: 5px
+    width: 22px
+    height: 22px
+  &__photo
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    margin-bottom: 30px
+    margin-left: -30px
+    height: 100px
+    *
+      height: 100%
+      max-width: none
+  &__btn
+    flex-grow: 0
+    flex-shrink: 0
+
+// карточка в полезном
+.good-card
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  justify-content: stretch
+  background-color: $color-gs-grey-light
+  border-radius: 10px
+  overflow: hidden
+  width: 100%
+  min-height: 676px
+  &__photo
+    flex-grow: 0
+    flex-shrink: 0
+    background: url(img/good/good-0.jpg) center center / cover no-repeat
+    height: 426px
+    width: 100%
+    &--1
+      background-image: url(img/good/good-1.jpg)
+    &--2
+      background-image: url(img/good/good-2.jpg)
+    &--3
+      background-image: url(img/good/good-3.jpg)
+    &--4
+      background-image: url(img/good/good-4.jpg)
+    &--5
+      background-image: url(img/good/good-5.jpg)
+  &__content
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 30px
+  &__text
+    margin-bottom: 20px
+    font-weight: 400
+    font-size: 24px
+    line-height: 33px
+  &__btn
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: auto
+    background-color: $color-gs-white
+    border: 2px solid $color-primary
+    border-radius: 10px
+    width: 128px
+    height: 54px
+    font-weight: 600
+    font-size: 16px
+    line-height: 100%
+    color: $color-primary
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out
+    &:focus
+      background-color: $color-primary
+      border-color: $color-primary
+      color: $color-gs-white
+    &:hover
+      background-color: $color-primary-light
+      color: $color-gs-white
+    &:active
+      background-color: $color-primary-shade
+      border-color: $color-primary-shade
+      color: $color-gs-white
+
+// карточка в спецпредложениях
+.offers-card
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  justify-content: stretch
+  padding: 30px
+  background-color: $color-gs-grey-light
+  border-radius: 10px
+  min-height: 453px
+  &__rating
+    margin-bottom: 24px
+  &__photo
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    margin: auto -15px 16px -15px
+    img
+      width: 100%
+  &__title
+    margin-bottom: 24px
+    max-width: 230px
+    font-weight: 400
+    font-size: 24px
+    line-height: 130%
+    color: $color-gs-black
+  &__price-info
+    display: flex
+    align-items: center
+    margin-bottom: 24px
+    font-weight: 400
+  &__price-new
+    padding-right: 30px
+    font-size: 18px
+    line-height: 130%
+    color: $color-secondary
+  &__price
+    font-size: 16px
+    line-height: 130%
+    text-decoration: line-through
+    color: $color-gs-grey
+  &__btn
+    max-width: 105px
+    max-height: 54px
+    min-height: 54px !important
+  &__discount
+    position: absolute
+    top: 30px
+    left: 0
+  &__scheme
+    position: absolute
+    right: 30px
+    bottom: 30px
+  // &--big
+  //   width: 624px !important
+
+// иконка для хинта (должна быть без обводки)
+.hint-icon
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  padding: calc(1.7px * $info-standart-size)
+  border: calc(1.5px * $info-standart-size) solid $color-secondary
+  border-radius: 50%
+  width: calc(14px * $info-standart-size)
+  height: calc(14px * $info-standart-size)
+  transition: background-color 0.2s ease-in-out
+  svg
+    fill: $color-secondary
+    transition: fill 0.2s ease-in-out
+  &:focus, &:hover
+    background-color: $color-secondary
+    svg
+      fill: $color-gs-white
+.tippy-box[data-theme~="main"]
+  display: flex
+  align-items: center
+  padding: 5px
+  border: none
+  border-radius: 0
+  background-color: $color-gs-black
+  font-weight: 400
+  font-size: 9px
+  line-height: 14px
+  color: $color-gs-white
+  text-align: center
+  .tippy-content
+    padding: 0 !important
+
+// кастомный чекбокс
+.checkbox
+  position: relative
+  display: flex
+  align-items: stretch
+  label
+    display: flex
+    align-items: center
+    font-weight: 400
+    font-size: calc(16px * $checkbox-standart-size)
+    line-height: calc(21px * $checkbox-standart-size)
+    &::before
+      content: ''
+      display: block
+      height: calc(21px * $checkbox-standart-size)
+      width: calc((21px + 12px) * $checkbox-standart-size) // ширина чекбокса + отступ справа
+      background: url(img/checkbox-empty.svg) left top / contain no-repeat
+  input[type="checkbox"]
+    opacity: 0
+    width: 0
+    &:checked + label::before
+      background-image: url(img/checkbox.svg)
+
+// ссылки на социальные сети
+.socials
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  &__link
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 3px
+    width: 35px
+    height: 35px
+    transition: background-color 0.2s ease-in-out
+    &:not(:last-child)
+      margin-right: 15px
+    svg
+      fill: $color-gs-grey
+      transition: fill 0.2s ease-in-out
+    &:focus
+      svg
+        fill: $color-primary
+    &:hover
+      background-color: $color-primary-light
+      svg
+        fill: $color-gs-white
+    &:active
+      background-color: transparent
+      svg
+        fill: $color-primary-shade
+
+// копирайт
+.copyright
+  background-color: $color-gs-grey-light
+  width: 100%
+  min-height: 30px
+  font-weight: 400
+  font-size: 14px
+  line-height: 30px
+  text-align: center
+  color: $color-gs-grey
+  text-align: center
+
+// хлебные крошки
+.breadcrumbs
+  font-weight: 400
+  font-size: 14px
+  line-height: 100%
+  color: $color-gs-grey
+  &__link
+    &--active
+      color: $color-primary-shade
+
+// блок фильтров
+.filter-block
+  flex-shrink: 0
+  flex-grow: 0
+  display: flex
+  flex-direction: column
+  width: 296px
+
+// диапазон числовых значений (двойной слайдер)
+.range-number
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  &__values
+    display: flex
+    justify-content: space-between
+    margin-bottom: 10px
+  &__label
+    display: flex
+    align-items: center
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+    span
+      margin-right: 9px
+  &__input
+    padding-left: 13px
+    // padding-top: 4px
+    border: 1px solid $color-gs-grey
+    border-radius: 2px
+    width: 86px
+    height: 30px
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+    /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none
+      margin: 0
+  &__slider // ! ценовой диапазонный слайдер
+    margin-bottom: 10px
+    border: none
+    background-color: $color-gs-grey-md
+    box-shadow: none
+    height: 3px
+    .noUi
+      &-connect
+        background-color: $color-primary
+      &-base
+        height: 3px
+      &-handle
+        // position: relative
+        right: -6px
+        top: 0
+        background-color: transparent
+        box-shadow: none
+        border: none
+        width: 13px
+        height: 13px
+        &::before
+          display: none
+        &::after
+          display: none
+      &-touch-area
+        background: url(img/uislider-handle.svg) center center / contain no-repeat
+
+// микроблок с рекламой (по аналогии с adv)
+.adv-block
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  background-color: $color-gs-black
+  border-radius: 10px
+  overflow: hidden
+  width: 100%
+  &__photo
+    flex-grow: 0
+    flex-shrink: 0
+    background: url(img/adv/adv-1-small-1.jpg) center center / cover no-repeat
+    min-height: 190px
+    width: 100%
+  &__content
+    flex-grow: 1
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    padding: 30px
+  &__title
+    font-family: 'Playfair Display'
+    font-style: normal
+    font-weight: 900
+    font-size: 24px
+    line-height: 32px
+    color: $color-neutral
+  &__text
+    margin-bottom: 14px
+    font-weight: 400
+    font-size: 16px
+    line-height: 22px
+    color: $color-gs-grey
+
+// селект с чекбоксами (КАСТОМНЫЙ)
+.select-check
+  position: relative
+  &__header
+    position: relative
+    z-index: 1
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    padding: 9px 0 9px 15px
+    background: $color-gs-grey-light
+    border: 2px solid $color-gs-grey-light
+    border-radius: 10px
+    cursor: pointer
+    transition: border-bottom-right-radius 0.2s ease-in-out, border-bottom-left-radius 0.2s ease-in-out
+    &:focus
+      border-color: $color-primary
+    &:hover
+      border-color: $color-primary
+      background-color: $color-primary-bg-light
+    &:active
+      border-color: $color-primary-shade
+      background-color: $color-gs-white
+  &__placeholder
+  &__current
+    margin-right: 15px
+    font-weight: 400
+    font-size: 16px
+    line-height: 22px
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+  &__icon
+    display: flex
+    flex-grow: 0
+    flex-shrink: 0
+    justify-content: center
+    margin-left: auto
+    margin-right: 15px
+    padding-top: 2px
+    height: 13px
+    width: 13px
+    transform: rotate(0)
+    transition: transform 0.2s ease-in-out, margin-top 0.2s ease-in-out
+  &__body
+    position: absolute
+    left: 0
+    right: 0
+    top: 100%//calc(100% - 10px)
+    z-index: 2
+    padding: 32px 13px 30px 30px
+    border: 1px solid $color-gs-grey-md
+    border-radius: 0px 0px 10px 10px
+    background-color: $color-gs-white
+    // анимация открытия
+    transform: scaleY(0)
+    transform-origin: 50% 0
+    transition: transform 0.2s ease-in-out
+    &--visible
+      transform: scaleY(1)
+  &__item
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+    &:not(:last-child)
+      margin-bottom: 11px
+    &--other
+      margin-top: -2px
+    &:focus, &:hover
+      background-color: $color-gs-grey-light
+  &__input
+  &__label
+    &::before
+      width: 32px !important
+      height: 20px !important
+  &__btn
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: $color-primary
+// селект с инпутами (КАСТОМНЫЙ)
+.select-input
+  position: relative
+  &__header
+    position: relative
+    z-index: 3
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    padding: 9px 0 9px 15px
+    background: $color-gs-grey-light
+    border: 2px solid $color-gs-grey-light
+    border-radius: 10px
+    cursor: pointer
+    transition: border-bottom-right-radius 0.2s ease-in-out, border-bottom-left-radius 0.2s ease-in-out
+    &:focus
+      border-color: $color-primary
+    &:hover
+      border-color: $color-primary
+      background-color: $color-primary-bg-light
+    &:active
+      border-color: $color-primary-shade
+      background-color: $color-gs-white
+  &__current
+    margin-right: 15px
+    font-weight: 400
+    font-size: 16px
+    line-height: 22px
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+  &__icon
+    display: flex
+    flex-grow: 0
+    flex-shrink: 0
+    justify-content: center
+    margin-left: auto
+    margin-right: 15px
+    padding-top: 2px
+    height: 13px
+    width: 13px
+    transform: rotate(0)
+    transition: transform 0.2s ease-in-out, margin-top 0.2s ease-in-out
+  &__body
+    position: absolute
+    left: 0
+    right: 0
+    top: 100%
+    z-index: 2
+    padding: 32px 43px 30px 30px
+    border: 1px solid $color-gs-grey-md
+    border-radius: 0px 0px 10px 10px
+    background-color: $color-gs-white
+    // анимация открытия
+    transform: scaleY(0)
+    transform-origin: 50% 0
+    transition: transform 0.2s ease-in-out
+    &--visible
+      transform: scaleY(1)
+  &__label
+    display: flex
+    justify-content: stretch
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+    &:not(:last-child)
+      margin-bottom: 12px
+    span
+      flex-shrink: 0
+      flex-grow: 0
+      width: 28px
+  &__input
+    min-width: 0
+    border: 1px solid $color-gs-grey
+    border-radius: 2px
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+
+// выделение некоторых элементов
+.is-active
+  .select-check__header, .select-input__header
+    border-bottom-right-radius: 0
+    border-bottom-left-radius: 0
+  .select-check__icon, .select-input__icon
+    margin-top: 2px
+    transform: rotate(180deg)
+    transition: transform 0.2s ease-in-out, margin-top 0.2s ease-in-out
+  .select-check__body, .select-input__body
+    transform: scaleY(1)
+.is-selected.select-check__current
+  color: $color-primary
+.is-selected.select-input__current
+  color: $color-primary
+
+// параметр типа строки оглавления
+.param
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  font-weight: 400
+  font-size: calc(14px * $record-standart-size)
+  line-height: calc(180% * $record-standart-size)
+  color: $color-gs-grey
+  &__name
+    width: 100%
+    margin-right: 5px
+    position: relative
+    z-index: 0
+    span
+      padding-right: 0.25rem
+      background-color: $color-gs-white
+    &::after
+      content: ""
+      position: absolute
+      z-index: -1
+      left: 0
+      // top: 1.0625rem
+      bottom: 0.45rem
+      width: 100%
+      height: 2px
+      background-image: url("img/ellipse.svg")
+      background-repeat: repeat-x
+  &__value
+    min-width: 216px
+    color: $color-gs-black
+
+// модальное окно
+.modal
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 1000
+  background-color: rgba($color-gs-black, 0.3)
+  transform: scale(0)
+  transition: transform 0.3s ease-in-out // ! надо сделать так, чтобы фон плавно затемнялся, а вылезал из центра уже сам диалог
+  &-container
+    display: flex
+    justify-content: center
+    align-items: center
+  &-dialog
+    position: relative
+    padding: 30px
+    background-color: $color-gs-white
+    border-radius: 10px
+    max-height: calc(100% - 32px)
+    max-width: 624px
+    width: 100%//calc(100% - 32px)
+    overflow-y: auto
+    &--photo
+      padding: 0
+      max-width: 100%
+    &__close
+      position: absolute
+      top: 18px
+      right: 18px
+      padding: 2px
+      width: 24px
+      height: 24px
+      svg
+        fill: $color-gs-grey
+    &__buy
+      &-title
+        margin-bottom: 8px
+        font-weight: 400
+        font-size: 32px
+        line-height: 100%
+      &-text
+        max-width: 374px
+        font-weight: 400
+        font-size: 14px
+        line-height: 19px
+      &-form
+        display: flex
+        flex-direction: column
+        align-items: stretch
+      &-inputs
+        margin-bottom: 30px
+        width: 100%
+      &-input
+        margin-top: 30px
+        width: 100%
+        &-wrapper
+          position: relative
+          display: flex
+          flex-direction: column-reverse
+          align-items: stretch
+          .just-validate-error-label
+            position: absolute
+            top: 12px
+            left: 18px
+            font-weight: 400 !important
+            font-size: 12px !important
+            line-height: 16px !important
+            color: $color-input-error !important
+          .just-validate-success-field
+            border: 1px solid $color-input-ok
+      &-btn
+        margin-bottom: 12px
+        align-self: flex-start
+        width: 159px
+        min-height: 54px !important
+      &-label-checkbox
+        font-weight: 400 !important
+        font-size: 14px !important
+        line-height: 19px !important
+        &::before
+          height: 14px !important
+          width: 20px !important
+        a
+          text-decoration: underline
+          color: $color-primary
+    &__buy-confirm
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      height: 361px
+      &-logo
+        margin-bottom: 32px
+        margin-left: -48px
+        width: 172px
+        height: 117px
+        svg
+          fill: $color-secondary
+      &-text
+        font-weight: 400
+        font-size: 32px
+        line-height: 100%
+        text-align: center
+    &__photo
+      &-main
+        &-wrapper
+          margin: 50px 108px
+        &-slider
+          // border: 1px solid #000
+          height: 418px
+        &-swiper
+          height: 100%
+          &-wrapper
+          &-slide
+            display: flex
+            justify-content: center
+            align-items: center
+            img
+              object-fit: contain
+      &-list
+        &-wrapper
+          padding: 20px 51px
+          background-color: $color-gs-grey-light
+        &-slider
+          position: relative
+          // border: 1px solid #000
+          height: 126px
+        &-swiper
+          height: 100%
+          &-wrapper
+          &-slide
+            // border: 1px solid $color-primary !important
+            display: flex
+            justify-content: center
+            align-items: center
+            img
+              object-fit: contain
+      &-btn
+        position: absolute
+        top: calc(50% - 16px)
+        z-index: 10
+        cursor: pointer
+        display: none //flex
+        align-items: center
+        justify-content: center
+        &-prev
+          left: -50px
+          right: auto
+        &-next
+          right: -50px
+          left: auto
+
+// --------------------------------
+@media (max-width: 1351.98px)
+  .good-card
+    min-height: 456px
+    &__photo
+      height: 202px
+    &__text
+      font-size: 16px
+      line-height: 22px
+  .modal
+    &-dialog
+      &__photo
+        &-main
+          &-wrapper
+            margin: 50px 66px
+          &-slider
+            height: 322px
+        &-list
+          &-wrapper
+            padding: 20px 67px
+          &-slider
+            height: 126px
+        &-btn
+          display: flex
+  .offers-card
+    &__scheme
+      visibility: hidden
+      opacity: 0
+    &__title
+      margin-bottom: 21px
+    &__price-info
+      margin-bottom: 20px
+  .goods-card
+    &__price-info
+      margin-bottom: 17px
+    &__title
+      margin-bottom: 21px
+  .menu-sales
+    &__item:not(:last-child)
+      margin-right: 15px
+
+@media (max-width: 1023.98px)
+  .container
+    padding: 0 72px
+  .burger-menu
+    display: block
+  .modal
+    &-dialog
+      &__photo
+        &-main
+          &-wrapper
+            margin: 50px 20px
+          &-slider
+            height: 228px
+        &-list
+          &-wrapper
+            padding: 20px 79px
+          &-slider
+            height: 126px
+        &-btn
+          &-prev
+            left: -63px
+          &-next
+            right: -63px
+
+@media (max-width: 767.98px)
+  .container
+    padding: 0 36px
+  .btn
+    min-height: 54px
+    font-weight: 600
+  .burger-menu
+    padding-top: 9px
+    &__close-block
+      margin-bottom: 24px
+    &__close
+      margin-left: 3px
+      width: 26px
+      height: 26px
+
+@media (max-width: 575.98px)
+  .btn
+    min-height: 40px
+  .container
+    padding: 0 12px
+  .section
+    &__title
+      font-size: 24px
+  .btn-section
+    align-self: center
+    width: 100%
+    max-width: 100%
+    height: 63px
+  .burger-menu
+    &__grid
+      grid-template-columns: 1fr
+  .goods-card
+    padding: 16px
+    min-height: 278px
+    &__photo
+      margin: auto 0 16px
+      height: auto
+      max-height: 31px
+    &__title
+      margin-bottom: 16px
+      font-size: 16px
+  .product-card
+    padding: 16px
+    min-height: 246px
+    // height: 100%
+    &__photo
+      // border: 1px solid #000
+      margin: auto 0 12px
+      max-height: 52px
+      // max-height: 109px !important
+      picture, img
+        height: 54px
+    &__title
+      margin-bottom: 16px
+      font-size: 16px
+    &__price-info
+      margin-bottom: 14px
+  .top-card
+    padding: 16px
+    &__categ-list
+      flex-direction: column
+      align-items: flex-start
+      margin-bottom: 9px
+      font-size: 10px
+    &__categ-item:not(:last-child)
+      margin: 0
+      margin-bottom: 4px
+    &__title
+      margin-bottom: 16px
+      font-size: 16px
+      line-height: 104%
+    &__btn-icon
+      display: flex
+    &__btn
+      display: none
+    &__photo
+      margin-bottom: 0
+  .rating
+    font-size: 12px
+    color: $color-secondary
+    svg
+      margin-right: 6px
+      height: 13px
+      width: 13px
+  .select-check, .select-input
+    &__current
+      margin-right: 13px
+    &__body
+      padding: 16px 5px 16px 16px
+    &__label
+      font-size: 14px !important
+  .param
+    flex-direction: column
+    justify-content: flex-start
+    align-items: stretch
+    margin-bottom: 8px
+    &__name
+      font-weight: 400
+      font-size: 10px
+      line-height: 14px
+      &::after
+        display: none
+    &__value
+      font-weight: 400
+      font-size: 14px
+      line-height: 19px
+  .modal
+    &-dialog
+      &__buy
+        &-title
+          font-size: 24px
+        &-inputs
+          margin-bottom: 16px
+        &-input-wrapper
+          .just-validate-error-label
+            top: -1px
+        &-input
+          margin-top: 16px
+        &-label-checkbox
+          font-size: 12px !important
+          line-height: 16px !important
+        &-btn
+          margin-bottom: 12px
+          max-width: 154px
+      &__photo
+        &-main
+          &-wrapper
+            margin: 32px 16px
+          &-slider
+            height: 104px
+        &-list
+          &-wrapper
+            padding: 16px 62px
+          &-slider
+            height: 86px
+        &-btn
+          &-prev
+            left: -46px
+          &-next
+            right: -46px

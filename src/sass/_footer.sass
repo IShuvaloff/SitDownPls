@@ -1,0 +1,108 @@
+.footer
+  &__main
+    padding-top: 24px
+    padding-bottom: 24px
+    background-color: $color-gs-grey-md
+  &__container
+    display: flex
+    justify-content: space-between
+    align-items: stretch
+  &__logo-wrapper
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-start
+  &__logo
+  &__socials
+  &__menu-wrapper
+    display: flex
+    justify-content: space-between
+  &__list-block
+    min-width: 128px
+    &--1
+      margin-right: 69px
+    &--2
+      margin-right: 131px
+    &--3
+      margin-right: 125px
+  &__list-item
+    font-weight: 400
+    font-size: 14px
+    line-height: 100%
+    color: $color-gs-grey
+    &:not(:last-child)
+      margin-bottom: 10px
+    &--main
+      font-size: 16px
+      color: $color-gs-black
+    a
+      transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out
+      &:focus
+        color: $color-primary
+      &:hover
+        color: $color-primary-shade
+        background-color: $color-primary-bg
+      &:active
+        color: $color-primary-shade
+        background-color: transparent
+
+@media (max-width: 1351.98px)
+  .footer
+    &__main
+      padding-top: 21px
+      padding-bottom: 21px
+    &__list-block
+      &--1
+        margin-right: 32px
+      &--2
+        margin-right: 93px
+      &--3
+        margin-right: 90px
+
+@media (max-width: 1023.98px)
+  .footer
+    &__container
+      flex-direction: column
+      justify-content: flex-start
+      align-items: stretch
+    &__logo-wrapper
+      margin-bottom: 24px
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+    &__menu-wrapper
+      width: 100%
+      justify-content: stretch
+    &__list-block
+      min-width: 0
+      &:not(:last-child)
+        margin-right: 39px
+      &--1
+        flex-grow: 1
+      &--2
+        flex-grow: 10
+      &--3
+        flex-grow: 20
+      &--4
+        flex-grow: 6
+        max-width: 128px
+
+@media (max-width: 575.98px)
+  .footer
+    &__logo-wrapper
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+    &__logo
+      margin-bottom: 24px
+    &__menu-wrapper
+      flex-wrap: wrap
+      justify-content: space-between
+    &__list-block
+      flex-grow: 0
+      flex-shrink: 0
+      max-width: 100%
+      width: calc(50% - 8px)
+      margin-right: 0 !important
+      &:nth-child(-n+2)
+        margin-bottom: 24px

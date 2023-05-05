@@ -1,0 +1,282 @@
+.product-section
+  margin-bottom: 81px
+
+// карточка (страница) товара
+.product
+  display: grid
+  grid-template-rows: 245px 65px auto
+  grid-template-columns: 1fr 1fr
+  grid-gap: 32px
+  grid-template-areas: "product-photo product-main" "product-photo-list product-main" "product-info product-params"
+  width: 100%
+  &-info
+    // border: 1px solid #000
+    grid-area: product-info
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    justify-content: flex-start
+    margin-top: -3px
+    width: 100%
+    &__title
+      margin-bottom: 8px
+      font-weight: 600
+      font-size: 16px
+      line-height: 100%
+    &__text-wrapper
+      margin-bottom: 32px
+    &__text
+      margin-bottom: 10px
+      font-weight: 400
+      font-size: 14px
+      line-height: 180%
+    &__scheme-wrapper
+      display: flex
+      justify-content: stretch
+      align-items: stretch
+      margin-top: auto
+      max-height: 247px
+      width: 100%
+    &__scheme
+      flex: 1 1
+      margin-right: 28px
+      max-width: 247px
+      max-height: 113px
+  &-main
+    // border: 1px solid #000
+    grid-area: product-main
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    padding-top: 14px
+    width: 100%
+    // max-width: 400px
+    &__rating
+      flex: 0 0
+      margin-bottom: 2px
+    &__title
+      flex: 0 0
+      margin-bottom: 5px
+      font-weight: 400
+      font-size: 24px
+      line-height: 130%
+    &__text
+      flex: 0 0
+      margin-bottom: 21px
+      font-weight: 400
+      font-size: 14px
+      line-height: 100%
+      color: $color-gs-grey // !
+    &__price
+      flex: 0 0
+      margin-bottom: 21px
+      font-weight: 400
+      font-size: 36px
+      line-height: 130%
+    &__btn
+      flex-shrink: 0
+      margin-bottom: 12px
+      width: 230px
+      height: 54px
+      min-height: initial
+    &__btn-link
+      display: flex
+      align-items: center
+      justify-content: center
+      border: none
+      background-color: transparent
+      width: 230px
+      height: 21px
+      font-weight: 400
+      font-size: 16px
+      line-height: 130%
+      color: $color-primary
+  &-params
+    // border: 1px solid #000
+    grid-area: product-params
+    margin-top: -3px
+    width: 100%
+    max-width: 544px
+  &-photo
+    // border: 1px solid #000
+    grid-area: product-photo
+    flex-grow: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    &-main
+      img
+        object-fit: contain
+  &-photo-list
+    // border: 1px solid #000
+    grid-area: product-photo-list
+    flex-shrink: 0
+    display: flex
+    justify-content: flex-start
+    padding: 10px 25px
+    margin-top: -16px
+    background-color: $color-gs-grey-light
+    height: 81px
+    overflow: hidden
+    overflow-x: scroll
+    &::-webkit-scrollbar
+      display: none
+  &-photo-img
+    flex-shrink: 0
+    flex-grow: 0
+    height: 61px
+    &:not(:last-child)
+      margin-right: 41px
+    img
+      object-fit: cover
+      max-width: initial
+      max-height: initial
+      height: 100%
+      width: auto
+    &-p1
+      width: 123px
+    &-p2
+      width: 66px
+    &-p3
+      width: 134px
+    &-p4
+      width: 137px
+
+.same-section
+  margin-bottom: 72px
+.same
+  &__title
+    margin-bottom: 23px
+    font-weight: 400
+    font-size: 24px
+    line-height: 130%
+  &__navigation
+    display: flex
+    justify-content: space-between
+    &-buttons
+      display: flex
+      .btn-icon:not(:last-child)
+        margin-right: 13px
+    &-buttons
+      &--under
+        display: none
+        justify-content: center
+        margin-top: 16px
+
+@media (max-width: 1351.98px)
+  .product-section
+    margin-bottom: 69px
+  .product
+    grid-template-rows: 202px 65px auto
+    grid-template-columns: 1fr 405px
+    &-photo
+      justify-content: flex-start
+      &-main
+        height: 100%
+    &-photos-img
+      height: 202px
+    &-photo-list
+      padding: 10px
+    &-params
+      margin-top: 0
+    &-info
+      margin-top: 0
+  .same-section
+    margin-bottom: 76px
+
+@media (max-width: 1023.98px)
+  .product-section
+    margin-bottom: 28px
+  .product
+    grid-template-columns: 187px 1fr
+    grid-template-rows: 245px 349px auto 1fr
+    grid-template-areas: "product-photo product-photo" "product-photo-list product-main" "product-info product-info" "product-params product-params"
+    &-main
+      justify-content: center
+      padding-top: 5px
+    &-photo
+      // align-items: center
+    &-photo-list
+      flex-direction: column
+      align-items: center
+      padding: 25px
+      margin-top: 0
+      height: 100%
+      overflow-x: hidden
+      overflow-y: scroll
+    &-photo-img
+      &:not(:last-child)
+        margin-right: 0
+        margin-bottom: 19px
+    &-info
+      margin-top: 0
+      &__text
+        &-wrapper
+          margin-bottom: 23px
+        &:not(:last-child)
+          margin-bottom: 32px
+      &__scheme-wrapper
+        flex-shrink: 1
+    &-params
+      max-width: initial
+  .same
+    &-section
+      margin-bottom: 71px
+
+@media (max-width: 575.98px)
+  .product-section
+    margin-bottom: 62px
+  .product
+    grid-template-columns: 1fr
+    grid-template-rows: auto 81px auto auto auto
+    grid-template-areas: "product-photo" "product-photo-list" "product-main" "product-info" "product-params"
+    grid-gap: 16px
+    &-main
+      justify-content: flex-start
+      padding: 0
+      &__rating
+        font-size: 16px
+        color: $color-secondary
+        svg
+          margin-right: 7px
+          height: 17px
+          width: 17px
+      &__title
+        font-size: 16px
+        line-height: 130%
+      &__price
+        margin-bottom: 17px
+        font-size: 24px
+        line-height: 112%
+      &__btn
+        width: min(100%, 298px)
+      &__btn-link
+        width: min(100%, 298px)
+    &-photo
+      justify-content: center
+    &-photo-list
+      flex-direction: row
+      justify-content: flex-start
+      padding: 10px
+      overflow-y: hidden
+      overflow-x: scroll
+    &-photo-img
+      &:not(:last-child)
+        margin-bottom: 0
+        margin-right: 38px
+    &-info
+      padding-top: 18px
+      &__text:not(:last-child)
+        margin-bottom: 7px
+    &-params
+      padding-top: 19px
+  .same
+    &-section
+      margin-bottom: 69px
+    &__title
+      margin-bottom: 26px
+    &__navigation-buttons
+      &--above
+        display: none
+      &--under
+        display: flex

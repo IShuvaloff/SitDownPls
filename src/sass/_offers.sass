@@ -1,0 +1,32 @@
+.offers
+  &__navigation
+    display: flex
+    justify-content: space-between
+    &-buttons
+      display: flex
+      .btn-icon:not(:last-child)
+        margin-right: 13px
+    &-buttons
+      &--under
+        display: none
+        justify-content: center
+        margin-top: 16px
+
+.offers-slide // ! позволяет сделать слайды разной ширины + slidesPerView = auto + slidesPerGroup = 3
+  max-width: 296px
+  &--big
+    min-width: 624px
+
+@media (max-width: 1351.98px)
+  .offers-slide
+    max-width: 100% // ! выровнять ширину в слайдах + breakpoints - slidesPerGroup = 1
+    &--big
+      min-width: 0
+
+@media (max-width: 575.98px)
+  .offers
+    &__navigation-buttons
+      &--above
+        display: none
+      &--under
+        display: flex

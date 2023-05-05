@@ -1,0 +1,39 @@
+.bg-grey
+  background-color: $color-gs-grey
+.bg-white
+  background-color: $color-gs-white
+
+.rotate-left
+  transform: rotate(180deg)
+
+.none
+  display: none
+.invisible
+  visibility: hidden
+.transparent
+  opacity: 0
+.absolute-visible
+  z-index: 100
+.stop-scroll
+  overflow: hidden
+.validated
+  border: 1px solid $color-input-ok
+.invalidated // ! не нужно
+  z-index: 1000
+  // box-shadow: 0 0 3px 2px pink
+  border: 1px solid $color-input-error
+.hide-upper
+  top: -100vh
+.scale-1
+  transform: scale(1)
+
+.visually-hidden
+  position: absolute !important
+  clip: rect(1px 1px 1px 1px)
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px)
+  padding: 0 !important
+  border: 0 !important
+  height: 1px !important
+  width: 1px !important
+  overflow: hidden

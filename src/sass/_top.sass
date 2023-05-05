@@ -1,0 +1,69 @@
+.top-section
+.top
+  display: grid
+  grid-gap: 32px
+  grid-template-areas: "top-card-1 top-card-1 top-card-1 top-card-2 top-card-2 top-card-2" "top-card-3 top-card-3 top-card-4 top-card-4 top-card-5 top-card-5"
+  grid-template-columns: repeat(6, 1fr)
+  grid-template-rows: 511px 405px
+  &__wrapper
+    width: 100%
+    height: 100%
+  &__card--1
+    grid-area: top-card-1
+  &__card--2
+    grid-area: top-card-2
+  &__card--3
+    grid-area: top-card-3
+  &__card--4
+    grid-area: top-card-4
+  &__card--5
+    grid-area: top-card-5
+
+// --------------------------------
+@media (max-width: 1351.98px)
+  .top
+    grid-template-areas: "top-card-1 top-card-1 top-card-1 top-card-1 top-card-3 top-card-3" "top-card-4 top-card-4 top-card-2 top-card-2 top-card-5 top-card-5"
+    grid-template-rows: 511px 511px
+    &__card
+      &--2
+        .top-card__photo
+          justify-content: flex-end
+      &--4
+        .top-card__photo
+          justify-content: flex-end
+      &--5
+        .top-card__photo
+          justify-content: flex-end
+
+@media (max-width: 1023.98px)
+  .top
+    grid-template-areas: "top-card-1 top-card-1" "top-card-3 top-card-2" "top-card-4 top-card-5"
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: 511px 511px 511px
+    &__card
+      &--5
+        .top-card__photo
+          justify-content: flex-end
+
+@media (max-width: 575.98px)
+  .top
+    grid-template-areas: "top-card-1 top-card-1" "top-card-3 top-card-2" "top-card-4 top-card-5"
+    grid-template-rows: 332px 206px 206px
+    grid-gap: 16px
+    &-section
+      margin-bottom: 110px
+    &__card
+      .top-card__photo
+        justify-content: flex-start
+      &--1
+        padding: 30px 30px 16px
+        .top-card__title
+          font-size: 24px
+          line-height: 33px
+        .top-card__categ-list
+          flex-direction: row
+          margin-bottom: 14px
+          font-size: 14px
+          line-height: 100%
+        .top-card__categ-item:not(:last-child)
+          margin-right: 20px

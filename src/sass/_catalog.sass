@@ -1,0 +1,171 @@
+.catalog-main
+  &__breadcrumbs
+    margin-top: -9px
+    margin-bottom: 32px
+  &__body
+    display: flex
+    justify-content: stretch
+    align-items: stretch
+  &__title
+    margin-bottom: -6px
+    font-size: 24px
+    line-height: 130%
+
+.filter-block
+  flex-grow: 0
+  flex-shrink: 0
+  margin-right: 32px
+  padding-bottom: 64px
+  &__type
+    margin-bottom: 26px
+  &__title
+    margin-bottom: 20px
+    font-weight: 400
+    font-size: 18px
+    line-height: 130%
+  &__subtitle
+    margin-bottom: 9px
+    font-weight: 600
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+  &__item
+    font-weight: 400
+    font-size: 16px
+    line-height: 130%
+    color: $color-gs-grey-shade
+    &:not(:last-child)
+      margin-bottom: 11px
+  &__adv
+    margin-top: auto
+
+.catalog-content
+  flex-grow: 1
+  flex-shrink: 1
+  max-width: 100%
+
+.catalog-filters
+  display: none //flex
+  justify-content: flex-start
+  align-items: center
+  &__grid
+    flex-grow: 1
+    flex-shrink: 1
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: repeat(4,minmax(0, 1fr)) // ! если поставить 1fr, то колонка почему-то будет расширяться за счет содержимого!
+    grid-gap: 32px
+    margin-bottom: 0
+  &__title
+    flex-grow: 0
+    flex-shrink: 0
+    margin-right: 43px
+    font-weight: 400
+    font-size: 14px
+    line-height: 130%
+
+.catalog-wrapper
+  flex-grow: 1
+  max-width: 952px
+
+.catalog
+  padding-bottom: 64px
+  &__slides
+    flex-direction: inherit !important
+  &__slide
+    margin-top: 32px
+  &__card
+    width: auto
+    // .goods-card
+    //   &__photo
+    //     height: 116px
+    //   &__btn
+    //     width: 105px
+    //     height: 51px
+    //     min-height: 50px
+    //   &__price-info
+    //     margin-bottom: 27px
+  &__pagination
+    bottom: 2px !important
+    display: flex
+    justify-content: center
+    .swiper-pagination-bullet
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 0 8px !important
+      background-color: $color-gs-white
+      border: 2px solid $color-primary
+      border-radius: 10px
+      width: 32px
+      height: 32px
+      color: $color-primary
+      opacity: 1
+      &-active
+        border: 2px solid $color-primary-shade
+        background-color: $color-primary-shade
+        color: $color-gs-white
+
+// .swiper-container-multirow-column > .swiper-wrapper
+//   flex-direction: inherit !important
+
+@media (max-width: 1351.98px)
+  .filter-block
+    display: none
+  .catalog-main
+    &__title
+      margin-bottom: 16px
+  .catalog-filters
+    display: flex
+  .catalog-wrapper
+    max-width: 100%
+
+@media (max-width: 1023.98px)
+  .catalog-main
+    &__title
+      margin-bottom: 27px
+  .catalog-filters
+    flex-wrap: wrap
+    justify-content: flex-start
+    &__grid
+      grid-template-columns: 187px 206px
+      grid-template-rows: 1fr 1fr
+      grid-gap: 16px
+    &__title
+      width: 100%
+      margin-bottom: 14px
+    &__price, &__color
+      margin-left: 16px
+
+@media (max-width: 575.98px)
+  .catalog-main
+    &__title
+      margin-bottom: 16px
+    &__breadcrumbs
+      display: none
+  .catalog-filters
+    margin-bottom: 16px
+    &__grid
+      grid-template-columns: 1fr 1fr
+    &__filter
+      min-width: 0
+      width: auto
+      margin: 0
+  .catalog
+    &__slide
+      margin-top: 16px
+    &__card
+    // &__card
+    //   min-height: 245px
+    //   .goods-card__photo
+    //     margin-bottom: 19px
+    //     picture
+    //       max-height: 56px
+    //   .goods-card__price-info
+    //     margin-bottom: 16px
+    //   .goods-card__btn
+    //     height: 39px
+    //     min-height: 39px
+    //     width: auto
+    // &__slide
+    //   margin-top: 16px

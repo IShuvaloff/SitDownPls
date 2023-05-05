@@ -1,0 +1,26 @@
+.high-section
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  &__btn
+    align-self: center
+
+.high
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-gap: 32px
+
+@media (max-width: 1351.98px)
+  .high
+    grid-template-columns: repeat(3, 1fr)
+    &__goods-card
+      &--xl
+        display: none
+
+@media (max-width: 1023.98px)
+  .high
+    grid-template-columns: repeat(2, minmax(140px, 1fr))
+
+@media (max-width: 575.98px)
+  .high
+    grid-gap: 16px

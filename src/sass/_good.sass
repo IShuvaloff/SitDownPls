@@ -1,0 +1,28 @@
+.good
+  &__navigation
+    display: flex
+    justify-content: space-between
+    &-buttons
+      display: flex
+      .btn-icon:not(:last-child)
+        margin-right: 13px
+    &-buttons
+      &--under
+        display: none
+        justify-content: center
+        margin-top: 16px
+
+@media (max-width: 1023.98px)
+  .good
+    &-section
+      margin-bottom: 60px
+
+@media (max-width: 575.98px)
+  .good
+    &-section
+      margin-bottom: 69px
+    &__navigation-buttons
+      &--above
+        display: none
+      &--under
+        display: flex
