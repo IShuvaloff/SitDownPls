@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>SitDownPls - Каталог товаров</title>
+
+  <link rel="preload" href="fonts/OpenSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/OpenSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/OpenSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="preload" href="fonts/OpenSans-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/OpenSans-SemiBold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/OpenSans-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/PlayfairDisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/PlayfairDisplay-Black.woff" as="font" type="font/woff" crossorigin>
+
+  <link rel="icon" href="./favicon.svg">
+
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+  <link rel="stylesheet" href="libraries/nouislider/nouislider.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script defer src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <script defer src="libraries/inputmask/inputmask.min.js"></script>
+  <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+  <script defer src="libraries/nouislider/nouislider.min.js"></script>
+  <script src="app.js" type="module"></script>
+</head>
+
+<body>
+
+  <!-- шапка -->
+  <header class="header">
+    <div class="header__line-1">
+      <!-- логотип -->
+      <a href="/#" class="logo header__logo-link">
+        <svg class="header__logo-img">
+          <use xlink:href="img/sprite.svg#logo"></use>
+        </svg>
+      </a>
+    </div>
+
+    <div class="header__line-2">
+      <div class="container header__container header__container--line-2">
+        <!-- регионы -->
+        <div class="branches header__branches">
+          <p class="branches__title header__branches-title">
+            Ваш регион:
+          </p>
+          <select class="branches__list header__branches-list"></select>
+        </div>
+        <!-- телефон -->
+        <a href="tel:+74958854547" class="link-phone header__phone">
+          <svg>
+            <use xlink:href="img/sprite.svg#phone"></use>
+          </svg>
+          <span>+7 (495) 885-45-47</span>
+        </a>
+        <!-- корпоративное меню -->
+        <div class="menu-corp header__menu-corp">
+          <ul class="menu-corp__list">
+            <li class="menu-corp__item"><a href="#">О компании</a></li>
+            <li class="menu-corp__item"><a href="#">Гарантия и возврат</a></li>
+            <li class="menu-corp__item"><a href="#">Корпоративным клиентам</a></li>
+            <li class="menu-corp__item"><a href="#">Дизайн-решение</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__line-2a">
+      <div class="container header__container header__container--line-2a">
+        <!-- корпоративное меню -->
+        <div class="menu-corp header__menu-corp">
+          <ul class="menu-corp__list">
+            <li class="menu-corp__item"><a href="#">О компании</a></li>
+            <li class="menu-corp__item"><a href="#">Гарантия и возврат</a></li>
+            <li class="menu-corp__item"><a href="#">Корпоративным клиентам</a></li>
+            <li class="menu-corp__item"><a href="#">Дизайн-решение</a></li>
+          </ul>
+        </div>
+        <!-- линки -->
+        <div class="header__links header__links--line-2a">
+          <a class="link-icon link-icon--account header__link" href="#">
+            <svg>
+              <use xlink:href="img/sprite.svg#account"></use>
+            </svg>
+          </a>
+          <a class="link-icon link-icon--basket header__link" href="#">
+            <svg>
+              <use xlink:href="img/sprite.svg#basket"></use>
+            </svg>
+            <div class="link-icon__text">0</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__line-3">
+      <div class="container header__container header__container--line-3">
+        <!-- бургер-меню -->
+        <div class="burger-menu header__burger-menu transparent" id="burger-menu">
+          <div class="container">
+            <div class="burger-menu__close-block">
+              <a href="#" class="link-icon burger-menu__close" id="burger-close">
+                <svg>
+                  <use xlink:href="img/sprite.svg#x"></use>
+                </svg>
+              </a>
+            </div>
+            <ul class="burger-menu__grid">
+              <li class="burger-menu__item"><a href="/catalog.html" class="burger-menu__link">Каталог</a></li>
+              <li class="burger-menu__item"><a href="#" class="burger-menu__link">Доставка и оплата</a></li>
+              <li class="burger-menu__item"><a href="#" class="burger-menu__link">Магазины</a></li>
+              <li class="burger-menu__item"><a href="#" class="burger-menu__link">Дисконт</a></li>
+              <li class="burger-menu__item"><a href="#" class="burger-menu__link">Шоу-рум</a></li>
+              <li class="burger-menu__item"><a href="#" class="burger-menu__link">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- бургер -->
+        <div class="header__burger" id="burger">
+          <a href="#" class="link-icon">
+            <svg>
+              <use xlink:href="img/sprite.svg#burger"></use>
+            </svg>
+          </a>
+        </div>
+        <!-- логотип -->
+        <a href="#" class="logo header__logo-link header__logo-link--line-3">
+          <svg class="header__logo-img">
+            <use xlink:href="img/sprite.svg#logo"></use>
+          </svg>
+        </a>
+        <!-- меню продаж -->
+        <div class="menu-sales header__menu-sales">
+          <ul class="menu-sales__list">
+            <li class="menu-sales__item"><a href="#">Каталог</a></li>
+            <li class="menu-sales__item"><a href="#">Магазины</a></li>
+            <li class="menu-sales__item"><a href="#">Шоу-рум</a></li>
+            <li class="menu-sales__item"><a href="#">Доставка и оплата</a></li>
+            <li class="menu-sales__item"><a href="#">Дисконт</a></li>
+            <li class="menu-sales__item"><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        <!-- линки -->
+        <div class="header__links header__links--line-3">
+          <a class="link-icon link-icon--account header__link" href="#">
+            <svg>
+              <use xlink:href="img/sprite.svg#account"></use>
+            </svg>
+          </a>
+          <a class="link-icon link-icon--basket header__link" href="#">
+            <svg>
+              <use xlink:href="img/sprite.svg#basket"></use>
+            </svg>
+            <div class="link-icon__text">0</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header__line-4">
+      <div class="container header__container header__container--line-4">
+        <!-- блок с инпутом и категориями -->
+        <div class="header__search-wrapper">
+          <div class="search header__search">
+            <input class="search__input" type="text" placeholder="Я хочу купить...">
+            <svg class="search__icon">
+              <use xlink:href="img/sprite.svg#search"></use>
+            </svg>
+            <button class="btn-icon search__btn">
+              <svg>
+                <use xlink:href="img/sprite.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="categories header__categories">
+            <select name="category" id="search-category" class="categories__list"></select>
+          </div>
+        </div>
+        <!-- линки -->
+        <div class="header__links header__links--line-4">
+          <a class="link-icon link-icon--account header__link" href="#">
+            <svg>
+              <use xlink:href="img/sprite.svg#account"></use>
+            </svg>
+          </a>
+          <a class="link-icon link-icon--basket header__link" href="#">
+            <svg>
+              <use xlink:href="img/sprite.svg#basket"></use>
+            </svg>
+            <div class="link-icon__text">0</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main catalog-main">
+    <div class="section container">
+      <!-- хлебные крошки -->
+      <div class="breadcrumbs catalog-main__breadcrumbs">
+        <a href="/#" class="breadcrumbs__link">Главная</a>
+        /
+        <a href="catalog.html" class="breadcrumbs__link">Каталог</a>
+        /
+        <a href="catalog.html" class="breadcrumbs__link">Диваны</a>
+        /
+        <a href="catalog.html" class="breadcrumbs__link breadcrumbs__link--active">Прямые диваны</a>
+      </div>
+
+      <div class="catalog-main__body main__body">
+        <!-- блок с фильтрами -->
+        <div class="main__filters filter-block">
+          <h2 class="filter-block__title">
+            Фильтровать по:
+          </h2>
+
+          <!-- категория -->
+          <div class="filter-block__type filter-block__category">
+            <h3 class="filter-block__subtitle">
+              Категория
+            </h3>
+            <ul class="filter-block__list">
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-1"
+                    checked>
+                  <label for="filter-block-input-checkbox-cat-1" class="filter-block__label-checkbox">Диваны</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-2">
+                  <label for="filter-block-input-checkbox-cat-2" class="filter-block__label-checkbox">Кресла</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-3">
+                  <label for="filter-block-input-checkbox-cat-3" class="filter-block__label-checkbox">Пуфы</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-4">
+                  <label for="filter-block-input-checkbox-cat-4" class="filter-block__label-checkbox">Кровати</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-5">
+                  <label for="filter-block-input-checkbox-cat-5" class="filter-block__label-checkbox">Тумбы</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-6">
+                  <label for="filter-block-input-checkbox-cat-6" class="filter-block__label-checkbox">Комоды</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-7">
+                  <label for="filter-block-input-checkbox-cat-7" class="filter-block__label-checkbox">Стулья</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-8">
+                  <label for="filter-block-input-checkbox-cat-8" class="filter-block__label-checkbox">Столы</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-cat-9">
+                  <label for="filter-block-input-checkbox-cat-9" class="filter-block__label-checkbox">Аксессуары</label>
+                </div>
+              </li>
+              <!--  -->
+            </ul>
+          </div>
+
+          <!-- цена (двойной слайдер) -->
+          <div class="filter-block__type filter-block__price">
+            <!-- заголовок -->
+            <h3 class="filter-block__subtitle filter-block__subtitle--price">
+              Цена
+            </h3>
+            <!-- диапазон (компонент) -->
+            <div class="range-number filter-block__range">
+              <div class="range-number__values filter-block__inputs">
+                <label class="range-number__label filter-block__input-label" for="filter-block-input-price-from">
+                  <span>от</span>
+                  <input class="range-number__input" type="number" name="filter-block-input-price-from"
+                    id="filter-block-input-price-from">
+                </label>
+                <label class="filter-block__input-label" for="filter-block-input-price-till">
+                  <span>до</span>
+                  <input class="range-number__input" type="number" name="filter-block-input-price-till"
+                    id="filter-block-input-price-till">
+                </label>
+              </div>
+              <div class="range-number__slider filter-slider filter-slider--price" id="filter-slider-price"></div>
+            </div>
+          </div>
+
+          <!-- скидка -->
+          <div class="filter-block__type filter-block__discount">
+            <h3 class="filter-block__subtitle">
+              Скидка
+            </h3>
+            <ul class="filter-block__list">
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox"
+                    id="filter-block-input-checkbox-discount-1">
+                  <label for="filter-block-input-checkbox-discount-1" class="filter-block__label-checkbox">Более 5
+                    000</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox"
+                    id="filter-block-input-checkbox-discount-2">
+                  <label for="filter-block-input-checkbox-discount-2" class="filter-block__label-checkbox">Менее 5
+                    000</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox"
+                    id="filter-block-input-checkbox-discount-3" checked>
+                  <label for="filter-block-input-checkbox-discount-3" class="filter-block__label-checkbox">Не
+                    важно</label>
+                </div>
+              </li>
+              <!--  -->
+            </ul>
+          </div>
+
+          <!-- цвет -->
+          <div class="filter-block__type filter-block__color">
+            <h3 class="filter-block__subtitle">
+              Цвет
+            </h3>
+            <ul class="filter-block__list">
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-1">
+                  <label for="filter-block-input-checkbox-color-1"
+                    class="filter-block__label-checkbox">Коричневый</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-2">
+                  <label for="filter-block-input-checkbox-color-2" class="filter-block__label-checkbox">Черный</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-3">
+                  <label for="filter-block-input-checkbox-color-3" class="filter-block__label-checkbox">Бежевый</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-4">
+                  <label for="filter-block-input-checkbox-color-4" class="filter-block__label-checkbox">Серый</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-5">
+                  <label for="filter-block-input-checkbox-color-5" class="filter-block__label-checkbox">Белый</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-6">
+                  <label for="filter-block-input-checkbox-color-6" class="filter-block__label-checkbox">Синий</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-7"
+                    checked>
+                  <label for="filter-block-input-checkbox-color-7"
+                    class="filter-block__label-checkbox">Оранжевый</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-8">
+                  <label for="filter-block-input-checkbox-color-8" class="filter-block__label-checkbox">Желтый</label>
+                </div>
+              </li>
+              <!--  -->
+              <li class="filter-block__item">
+                <div class="checkbox filter-block__checkbox">
+                  <input type="checkbox" class="filter-block__input-checkbox" id="filter-block-input-checkbox-color-9">
+                  <label for="filter-block-input-checkbox-color-9" class="filter-block__label-checkbox">Зеленый</label>
+                </div>
+              </li>
+              <!--  -->
+            </ul>
+          </div>
+
+          <div class="adv-block filter-block__adv">
+            <div class="adv-block__photo"></div>
+            <div class="adv-block__content">
+              <h3 class="adv-block__title">Оксфорд 1950</h3>
+              <p class="adv-block__text">Новая коллекция изысканных кресел</p>
+              <button class="link-text-icon adv-block__link">
+                <span class="link-text-icon__name">В каталог</span>
+                <span class="link-text-icon__img">
+                  <svg>
+                    <use xlink:href="img/sprite.svg#arrow-right"></use>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- блок с основным содержимым -->
+        <div class="catalog-content">
+          <h1 class="section__title catalog-main__title">
+            Каталог
+          </h1>
+
+          <!-- строка с фильтрами -->
+          <div class="catalog-filters">
+            <h2 class="catalog-filters__title">Фильтры:</h2>
+
+            <div class="catalog-filters__grid">
+              <!-- СЕЛЕКТ С ЧЕКБОКСАМИ по категориям -->
+              <div class="select-check catalog-filters__filter catalog-filters__categories filters-categories" id="filters-categories"
+                data-placeholder="Категория" data-value="">
+                <!-- выбранный(-е) элемент(-ы) -->
+                <div class="select-check__header filters-categories__header" tabindex="0">
+                  <span class="select-check__current filters-categories__current">Категория</span>
+                  <div class="select-check__icon filters-categories__icon">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#select-icon-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <!-- варианты выбора -->
+                <div class="select-check__body filters-categories__body">
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-1">
+                      <label for="filter-check-cat-1" class="select-check__label filters-categories__label"
+                        data-name="sofa">Диваны</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-2">
+                      <label for="filter-check-cat-2" class="select-check__label filters-categories__label"
+                        data-name="armchairs">Кресла</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-3">
+                      <label for="filter-check-cat-3" class="select-check__label filters-categories__label"
+                        data-name="poofs">Пуфы</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-4">
+                      <label for="filter-check-cat-4" class="select-check__label filters-categories__label"
+                        data-name="beds">Кровати</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-5">
+                      <label for="filter-check-cat-5" class="select-check__label filters-categories__label"
+                        data-name="tombs">Тумбы</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-6">
+                      <label for="filter-check-cat-6" class="select-check__label filters-categories__label"
+                        data-name="boards">Комоды</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-7">
+                      <label for="filter-check-cat-7" class="select-check__label filters-categories__label"
+                        data-name="chairs">Стулья</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-8">
+                      <label for="filter-check-cat-8" class="select-check__label filters-categories__label"
+                        data-name="tables">Столы</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-categories__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-categories__checkbox">
+                      <input type="checkbox" class="select-check__input filters-categories__input"
+                        id="filter-check-cat-9">
+                      <label for="filter-check-cat-9" class="select-check__label filters-categories__label"
+                        data-name="accessories">Аксессуары</label>
+                    </div>
+                  </div>
+                  <!-- еще -->
+                  <div class="select-check__item select-check__item--other filters-categories__other">
+                    <button class="select-check__btn filters-categories__btn">+ еще 12</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- СЕЛЕКТ С ИНПУТАМИ по цене -->
+              <div class="select-input catalog-filters__filter catalog-filters__price filters-price" id="filters-price" data-placeholder="Цена"
+                data-value="">
+                <!-- выбранный диапазон -->
+                <div class="select-input__header filters-price__header" tabindex="0">
+                  <span class="select-input__current filters-price__current">Цена</span>
+                  <div class="select-input__icon filters-price__icon">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#select-icon-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <!-- варианты выбора -->
+                <div class="select-input__body filters-price__body">
+                  <label class="select-input__label filters-price__label" for="filters-price-input-from">
+                    <span>от</span>
+                    <input class="select-input__input filters-price__from" type="number" name="filters-price-from"
+                      id="filters-price-input-from" data-price-type="from">
+                  </label>
+                  <!--  -->
+                  <label class="select-input__label filters-price__label" for="filters-price-input-till">
+                    <span>до</span>
+                    <input class="select-input__input filters-price__till" type="number" name="filters-price-till"
+                      id="filters-price-input-till" data-price-type="till">
+                  </label>
+                </div>
+              </div>
+
+              <!-- СЕЛЕКТ С ЧЕКБОКСАМИ по скидке -->
+              <div class="select-check catalog-filters__filter catalog-filters__discount filters-discount" id="filters-discount"
+                data-placeholder="Скидка" data-value="">
+                <!-- выбранный(-е) элемент(-ы) -->
+                <div class="select-check__header filters-discount__header" tabindex="0">
+                  <span class="select-check__current filters-discount__current">Скидка</span>
+                  <div class="select-check__icon filters-discount__icon">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#select-icon-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <!-- варианты выбора -->
+                <div class="select-check__body filters-discount__body">
+                  <div class="select-check__item filters-discount__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-discount__checkbox">
+                      <input type="checkbox" class="select-check__input filters-discount__input"
+                        id="filter-check-discount-1">
+                      <label for="filter-check-discount-1" class="select-check__label filters-discount__label"
+                        data-name=">5000">Более 5 000</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-discount__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-discount__checkbox">
+                      <input type="checkbox" class="select-check__input filters-discount__input"
+                        id="filter-check-discount-2">
+                      <label for="filter-check-discount-2" class="select-check__label filters-discount__label"
+                        data-name="<5000>">Менее 5 000</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-discount__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-discount__checkbox">
+                      <input type="checkbox" class="select-check__input filters-discount__input"
+                        id="filter-check-discount-3">
+                      <label for="filter-check-discount-3" class="select-check__label filters-discount__label"
+                        data-name="...">Не важно</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- СЕЛЕКТ С ЧЕКБОКСАМИ по цветам -->
+              <div class="select-check catalog-filters__filter catalog-filters__color filters-color" id="filters-color" data-placeholder="Цвет"
+                data-value="">
+                <!-- выбранный(-е) элемент(-ы) -->
+                <div class="select-check__header filters-color__header" tabindex="0">
+                  <span class="select-check__current filters-color__current">Цвет</span>
+                  <div class="select-check__icon filters-color__icon">
+                    <svg>
+                      <use xlink:href="img/sprite.svg#select-icon-down"></use>
+                    </svg>
+                  </div>
+                </div>
+                <!-- варианты выбора -->
+                <div class="select-check__body filters-color__body">
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-1">
+                      <label for="filter-check-color-1" class="select-check__label filters-color__label"
+                        data-name="brown">Коричневый</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-2">
+                      <label for="filter-check-color-2" class="select-check__label filters-color__label"
+                        data-name="black">Черный</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-3">
+                      <label for="filter-check-color-3" class="select-check__label filters-color__label"
+                        data-name="beige">Бежевый</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-4">
+                      <label for="filter-check-color-4" class="select-check__label filters-color__label"
+                        data-name="grey">Серый</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-5">
+                      <label for="filter-check-color-5" class="select-check__label filters-color__label"
+                        data-name="white">Белый</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-6">
+                      <label for="filter-check-color-6" class="select-check__label filters-color__label"
+                        data-name="blue">Синий</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-7">
+                      <label for="filter-check-color-7" class="select-check__label filters-color__label"
+                        data-name="orange">Оранжевый</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-8">
+                      <label for="filter-check-color-8" class="select-check__label filters-color__label"
+                        data-name="yellow">Желтый</label>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="select-check__item filters-color__item" tabindex="0">
+                    <div class="checkbox select-check__checkbox filters-color__checkbox">
+                      <input type="checkbox" class="select-check__input filters-color__input" id="filter-check-color-9">
+                      <label for="filter-check-color-9" class="select-check__label filters-color__label"
+                        data-name="green">Зеленый</label>
+                    </div>
+                  </div>
+                  <!-- еще -->
+                  <div class="select-check__item select-check__item--other filters-color__other">
+                    <button class="select-check__btn filters-color__btn">+ еще 7</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- контейнер с каталогом -->
+          <div class="catalog-wrapper">
+            <div class="swiper catalog">
+              <!-- контейнер слайдов -->
+              <div class="swiper-wrapper catalog__slides">
+                <!-- 1 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">5,0</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_01.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_01.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван кожаный &laquo;R-94&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">94 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 2 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,9</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_02.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_02.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван апартековый &laquo;T-75&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">69 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,8</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_03.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_03.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван тканевый &laquo;D-31&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">28 490 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 4 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,8</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_04.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_04.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван велюровый &laquo;Y-68&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">22 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 5 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,8</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_05.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_05.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван из&nbsp;шинила &laquo;W-95&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">22 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 6 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,8</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_06.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_06.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван флоковый &laquo;G-41&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">17 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 7 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,8</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_07.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_07.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван шиниловый &laquo;V-43&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">19 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 8 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,7</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_08.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_08.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван велюровый &laquo;S-99&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">19 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 9 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,7</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_09.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_09.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван из&nbsp;кожзама &laquo;F-85&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">26 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 10 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,6</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_10.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_10.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван флоковый &laquo;H-64&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">25 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 11 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,6</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_11.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_11.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван флоковый &laquo;H-58&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">23 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 12 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,6</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_12.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_12.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван из&nbsp;кожзама &laquo;R-43&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">33 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 13 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,6</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_02.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_02.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван из&nbsp;шинила &laquo;C-42&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">18 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 14 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,6</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_05.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_05.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван велюровый &laquo;U-58&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">21 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 15 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,5</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_08.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_08.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван флоковый &laquo;F-41&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">17 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 16 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,5</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_03.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_03.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван велюровый &laquo;R-85&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">34 490 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 17 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,5</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_06.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_06.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван велюровый &laquo;S-44&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">19 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 18 карточка -->
+                <div class="swiper-slide catalog__slide">
+                  <div class="catalog__slide-wrapper">
+                    <div class="product-card catalog-card catalog__card">
+                      <div class="rating product-card__rating">
+                        <svg class="rating__img">
+                          <use xlink:href="img/sprite.svg#rating"></use>
+                        </svg>
+                        <span class="rating__text">4,7</span>
+                      </div>
+                      <div class="product-card__photo">
+                        <!-- <picture>
+                          <source srcset="img/rating/sofa_09.webp" type="image/webp"> -->
+                          <img src="img/rating/sofa_09.png" alt="Картинка">
+                        <!-- </picture> -->
+                      </div>
+                      <div class="product-card__title">Диван из&nbsp;шинила &laquo;C-80&raquo;</div>
+                      <div class="product-card__price-info catalog-card__price-info">
+                        <div class="product-card__price">26 990 руб</div>
+                      </div>
+                      <div class="btn btn-empty product-card__btn">Купить</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- пагинация -->
+              <div class="swiper-pagination catalog__pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- футер -->
+  <footer class="footer">
+    <div class="footer__main">
+      <div class="container footer__container">
+        <!-- логотип и контакты -->
+        <div class="footer__logo-wrapper">
+          <a href="#" class="logo footer__logo">
+            <svg>
+              <use xlink:href="img/sprite.svg#logo"></use>
+            </svg>
+          </a>
+          <div class="socials footer__socials">
+            <a href="https://fb.com" class="socials__link" target="blank">
+              <svg>
+                <use xlink:href="img/sprite.svg#fb"></use>
+              </svg>
+            </a>
+            <a href="https://vk.com" class="socials__link" target="blank">
+              <svg>
+                <use xlink:href="img/sprite.svg#vk"></use>
+              </svg>
+            </a>
+            <a href="https://instagram.com" class="socials__link" target="blank">
+              <svg>
+                <use xlink:href="img/sprite.svg#instagram"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- блок с меню -->
+        <div class="footer__menu-wrapper">
+          <!-- 1 столбец -->
+          <ul class="footer__list-block footer__list-block--1">
+            <li class="footer__list-item footer__list-item--main"><a href="#">О нас</a></li>
+            <li class="footer__list-item"><a href="#">О компании</a></li>
+            <li class="footer__list-item"><a href="#">Блог</a></li>
+          </ul>
+          <!-- 2 столбец -->
+          <ul class="footer__list-block footer__list-block--2">
+            <li class="footer__list-item footer__list-item--main"><a href="#">Услуги</a></li>
+            <li class="footer__list-item"><a href="#">Доставка</a></li>
+            <li class="footer__list-item"><a href="#">Рассрочка и кредит</a></li>
+            <li class="footer__list-item"><a href="#">Сборка и установка</a></li>
+          </ul>
+          <!-- 3 столбец -->
+          <ul class="footer__list-block footer__list-block--3">
+            <li class="footer__list-item footer__list-item--main"><a href="#">Связь с нами</a></li>
+            <li class="footer__list-item"><a href="#">Обратная связь</a></li>
+            <li class="footer__list-item"><a href="#">Контакты</a></li>
+          </ul>
+          <!-- 4 столбец -->
+          <ul class="footer__list-block footer__list-block--4">
+            <li class="footer__list-item footer__list-item--main"><a href="#">Сотрудничество</a></li>
+            <li class="footer__list-item"><a href="#">Поставщикам</a></li>
+            <li class="footer__list-item"><a href="#">Оптовикам</a></li>
+            <li class="footer__list-item"><a href="#">Карьера</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright footer__copyright">
+      SDP<sup class="reg">&reg;</sup> 2011-2021
+    </div>
+  </footer>
+
+</body>
+
+</html>
